@@ -9,22 +9,24 @@ Since this package does not require Kaltura Application Framework (KAF), can wor
 In order to use this package, administrators must install "[YU Kaltura Media Local Libraries](https://moodle.org/plugins/local_yukaltura)" and "[YU Kaltura Media Gallery](https://moodle.org/plugins/local_yumymedia)".
 These plugins provide functions such as uploading, playing back and deleting media files to users.
 
-In addition, the administrators can install "[YU Kaltura Media Assignment](https://moodle.org/plugins/mod_kalmediaassign)" and "[YU Kaltura Media Resource](https://moodle.org/plugins/mod_kalmediares)".
+In addition, the administrators can install "[YU Kaltura Media Assignment](https://moodle.org/plugins/mod_kalmediaassign)", "[YU Kaltura Media Resource](https://moodle.org/plugins/mod_kalmediares)", and "[YU Kaltura Media for Atto](https://moodle.org/plugins/atto_yukaltura)".
 These plugins provide teachers ability of creating resource and activity modules which use kaltura media in their Moodle courses.
+And, user can embed his/her media into text area (introduction or page content) through the Atto text editor.
 
 Please note that there is a chance this module will not work on some Moodle environment.
 Also, this package is only available in English and Japanese. Stay tuned to future versions for other language supports.
 
 Original plugin package ("Kaltura Video Package") has better functions than ours and is easy to use. So that, for customers of the "Kaltura SaaS Edition", use the original plugin package is the better.
 
-YU Kaltura Media Resource for Moodle
+YU Kaltura Media for Atto.
 ------
 
-This is a resource module.
-Teachers can create media play page (embed media) in their courses, and can view students' play/view status.
-Teachers can choose a media player from Kaltura players, and can set player's size (dimension).
-Aditionally, the teacher can upload and record new media in resource editing page.
-Students can play the embedded media.
+This is a sub-plugin for the Atto text editor.
+Users can embed existing Kaltura media into text area on the Atto text editor.
+And, they can upload new media and can embed it.
+Users can record new media by using a webcam, and can upload the media.
+And, they can embed the media into text area on the Atto text editor.
+
 This plugin is updated with stable releases. To follow active development on GitHub, click [here](https://github.com/YU-MITC/moodle-mod_kalmediares/).
 
 Requirements
@@ -97,63 +99,7 @@ Warning
 Change log of YU Kaltura Media Resource
 ------
 
-Version 1.3.0
+Version 1.0.0
 
-* fixed statements in lib.php, renderer.php, export_excel.php, view.php, trigger.php, install.xml and upgrade.php, in order to reduce a time it takes to display students' access logs.
-* fixed some statements in backup_kalmediares_stepslib.php, in order to backup resource's informations correctly.
-
-Version 1.2.2
-
-* fixed some statements (about UIConf ID) in view.php, in order to solve a problem that unnecessary javascript codes are loaded.
-* fixed some statements in lib.php and mod_form.php, in order to display module's introduction on a moodle course page.
-
-Version 1.2.1
-
-* fixed some statements in renderer.php, according to changes of local plugin (local_yukaltura).
-* executed minimization to playtrigger.js, base on JSDoc warnings.
-
-Version 1.2.0
-
-* fixed some statements in view.php, in order to permit teachers to upload/record new movie in editing page of resource module (In order to permit upload/record, administrators must set some items in configuration page of local_yukaltura).
-* fixed some statements in media_resource_played.php, and media_resource_viewed.php, in order to respond to backup and restore mechanisms in recently versions of Moodle.
-
-Version 1.1.8
-
-* added statements about "Requirements" in README.md.
-* fixed copyright statements in all scripts.
-
-Version 1.1.7
-
-* added statements about "Supported themes" in README.md.
-
-Version 1.1.6
-
-* added functions for course reset in lib.php. Actually, these functions do nothing.
-* fixed statements about "How to use" in README.md.
-
-Version 1.1.5
-
-* added statements in README.md.
-
-Version 1.1.4
-
-* fixed issue that an error occurs in the "Administration->Course completion".
-* supports auto completion tracking.
-
-Version 1.1.3
-
-* supported "Chrome OS" for recording view/play logs.
-
-Version 1.1.2
-
-* added statements in README.md.
-* fixed last access timestamp and sort/order issue of access list (in renderer.php and export_excel.php).
-
-Version 1.1.1
-
-* fixed statements in README.md.
-
-Version 1.1.0
-
-* fixed some login check statement.
+* released first version.
 
