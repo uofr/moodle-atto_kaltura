@@ -1,0 +1,108 @@
+/**
+ * YU Kaltura Atto plugin style sheet.
+ *
+ * @package    atto_yukaltura
+ * @copyright  (C) 2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+
+#simple_search_container {
+    float: right;
+    margin-left: 5px;
+}
+
+#upload_btn_container.mymedia.upload.button.container {
+    float: left;
+    padding-right: 5px;
+}
+
+#simple_search_container input#clear_simple_search_btn {
+    margin-left: 5px;
+}
+
+#simple_search_container input#clear_simple_search_btn {
+    margin-left: 5px;
+}
+
+div.selector.media.thumbnail {
+    display: block;
+    white-space: nowrap;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+img.media_thumbnail {
+    display: block;
+    -moz-box-shadow: 2px 2px 3px 3px #ccc;
+    -webkit-box-shadow: 2px 2px 3px 3px #ccc;
+    box-shadow: 2px 2px 3px 3px #ccc;
+    background-color: #eee;
+    padding: 3px;
+    margin: 3px;
+    transition: all 0.5s ease;
+}
+
+img:hover.media_thumbnail {
+    opacity: 0.5;
+    filter: alpha(opacity=70);
+    background-color: #00f;
+}
+
+td.selector_entry {
+    display: table-cell;
+    word-wrap: normal;
+    word-break: break-all;
+    white-space: normal;
+}
+
+nav.selector.pagingbar {
+    text-align: center;
+    display: table;
+    margin: 0 auto;
+}
+
+#selectorSort,
+#simple_search,
+#search_label,
+#select_id,
+#select_name {
+    font-size: 14px;
+    font-family: arial, helvetica, clean, sans-serif;
+    font-size-adjust: none;
+    font-stretch: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+
+#upload_btn,
+#webcam_btn,
+#scr_btn,
+#simple_search_btn,
+#clear_simple_search_btn,
+#uploader_open,
+#webcam_open {
+    font-size: 1.1em;
+}
+
+#video_exp,
+#metadata_exp,
+#metadata_fields,
+#uploader_cancel,
+#fileData,
+#name,
+#tags,
+#description,
+#entry_submit,
+#entry_reset {
+    font-size: 14px;
+}
+
+#entry_warning {
+    font-size: 14px;
+    color: red;
+}
