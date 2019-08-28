@@ -29,7 +29,7 @@ And, they can upload new media and can embed it.
 Users can record new media by using a webcam, and can upload the media.
 And, they can embed the media into text area on the Atto text editor.
 
-This plugin is updated with stable releases. To follow active development on GitHub, click [here](https://github.com/YU-MITC/moodle-mod_kalmediares/).
+This plugin is updated with stable releases. To follow active development on GitHub, click [here](https://github.com/YU-MITC/moodle-atto_yukaltura/).
 
 Requirements
 ------
