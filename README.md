@@ -22,6 +22,8 @@ YU Kaltura Media for Atto.
 ------
 
 This is a sub-plugin for the Atto text editor.
+By using this plugin, users can embed Kaltura media into moodle content.
+For example, introduction of resource content, page content, feedback comment, etc.
 Users can embed existing Kaltura media into text area on the Atto text editor.
 And, they can upload new media and can embed it.
 Users can record new media by using a webcam, and can upload the media.
