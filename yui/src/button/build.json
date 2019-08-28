@@ -1,0 +1,10 @@
+{
+    "name": "moodle-atto_yukaltura-button",
+    "builds": {
+        "moodle-atto_yukaltura-button": {
+            "jsfiles": [
+                "button.js"
+            ]
+        }
+    }
+}
