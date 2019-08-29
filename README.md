@@ -23,11 +23,11 @@ YU Kaltura Media for Atto
 
 This is a sub-plugin for the Atto HTML editor.
 By using this plugin, users can embed Kaltura media into text content.
-For example, introduction of resource/activity content, page content, label content, online text report, feedback comment, etc.
+For example, introduction of resource/activity content, page content, label content, report as online text, feedback comment, etc.
 Users can embed existing Kaltura media into text area of the Atto.
-And, they can upload new media and can embed it.
-Users can record new media by using a webcam, and can upload the media.
-And, they can embed the media into text area of the Atto.
+In addition, they can upload new media and can embed it.
+For PCs, users can record new media by using a webcam, and can upload the media.
+Then, they can embed the media into text area of the Atto.
 
 This plugin is updated with stable releases. To follow active development on GitHub, click [here](https://github.com/YU-MITC/moodle-atto_yukaltura/).
 
