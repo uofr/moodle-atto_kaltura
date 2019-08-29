@@ -38,6 +38,10 @@ define(['jquery'], function($) {
             var sizeResult = false;
             var fileType = "";
 
+            var uploadFileType = "";
+            var naturalWidth = 0;
+            var naturalHeight = 0;
+
             var defaultWidth = 400;
             var defaultHeight = 300;
 
@@ -344,6 +348,10 @@ define(['jquery'], function($) {
                                 window.alert(localizedString);
                             });
                         });
+
+                        uploadFileType = fileType;
+                        naturalWidth = 0;
+                        naturalHeight = 0;
                     }
 
                     checkForm();
@@ -736,6 +744,10 @@ define(['jquery'], function($) {
                 $("#file_info").html("");
                 $("#type").val("");
 
+                uploadFileType = "";
+                naturalWidth = 0;
+                naturalHeight = 0;
+
                 disableInsertButton();
                 enableCancelButton();
             }
@@ -855,6 +867,9 @@ define(['jquery'], function($) {
                     var str = '<input type="hidden" name="yukaltura_select_id" id="yukaltura_select_id" value="">';
                     element.append(str);
 
+                    str = '<input type="hidden" name="yukaltura_select_name" id="yukaltura_select_name" value="">';
+                    element.append(str);
+
                     var kalturahost = $('#kalturahost').val();
                     str = '<input type="hidden" name="yukaltura_host" id="yukaltura_host" value="';
                     str = str + kalturahost + '">';
@@ -877,6 +892,15 @@ define(['jquery'], function($) {
                     var height = $('#player_height').val();
                     str = '<input type="hidden" name="yukaltura_height" id="yukaltura_height" value="' + height + '">';
                     element.append(str);
+
+                    str = '<input type="hidden" name="yukaltura_filetype" id="yukaltura_filetype" value="">';
+                    element.append(str);
+
+                    str = '<input type="hidden" name="yukaltura_naturalwidth" id="yukaltura_naturalwidth" value="">';
+                    element.append(str);
+
+                    str = '<input type="hidden" name="yukaltura_naturalheight" id="yukaltura_naturalheight" value="">';
+                    element.append(str);
                 }
             }
 
@@ -884,13 +908,20 @@ define(['jquery'], function($) {
              * This function update hidden parameters,
              * @access public
              * @param {string} id - id of media entry.
+             * @param {string} name - name of media entry.
              */
-            function updateHiddenParameters(id) {
+            function updateHiddenParameters(id, name) {
                 if (id !== null && id !== '' &&
                     parent.document.getElementById('yukaltura_select_id') !== null &&
                     parent.document.getElementById('yukaltura_select_id')[0] !== null) {
                     // Set entry id of selectd media.
                     $('#yukaltura_select_id', parent.document).val(id);
+                    // Set entry name of selected media.
+                    $('#yukaltura_select_name', parent.document).val(name);
+
+                    $('#yukaltura_filetype', parent.document).val(uploadFileType);
+                    $('#yukaltura_naturalwidth', parent.document).val(naturalWidth);
+                    $('#yukaltura_naturalheight', parent.document).val(naturalHeight);
                 }
             }
 
@@ -1471,7 +1502,7 @@ define(['jquery'], function($) {
                     // Prints success message.
                     printSuccessMessage(entryId, entryName, entryTags, entryDescription, entryCreatorId);
                     // Update hidden parameters on editors' page.
-                    updateHiddenParameters(entryId);
+                    updateHiddenParameters(entryId, entryName);
                 })
                 .fail(function(xmlData) {
                     if (xmlData !== null) {
@@ -1519,11 +1550,15 @@ define(['jquery'], function($) {
              */
             function removeParameters() {
                 $('#yukaltura_select_id', parent.document).remove();
+                $('#yukaltura_select_name', parent.document).remove();
                 $('#yukaltura_host', parent.document).remove();
                 $('#yukaltura_partnerid', parent.document).remove();
                 $('#yukaltura_uiconfid', parent.document).remove();
                 $('#yukaltura_width', parent.document).remove();
                 $('#yukaltura_height', parent.document).remove();
+                $('#yukaltura_filetype', parent.document).remove();
+                $('#yukaltura_naturalwidth', parent.document).remove();
+                $('#yukaltura_naturalheight', parent.document).remove();
             }
 
             // This function execute when window is chagned.

@@ -274,23 +274,64 @@ Y.namespace('M.atto_yukaltura').Button = Y.Base.create('button', Y.M.editor_atto
 
         if (Y.one('#yukaltura_select_id') !== null) {
             var entryid = Y.one('#yukaltura_select_id').get('value');
+            var entryname = Y.one('#yukaltura_select_name').get('value');
             var kalturahost = Y.one('#yukaltura_host').get('value');
             var partnerid = Y.one('#yukaltura_partnerid').get('value');
             var uiconfid = Y.one('#yukaltura_uiconfid').get('value');
             var width = Y.one('#yukaltura_width').get('value');
             var height = Y.one('#yukaltura_height').get('value');
+            var filetype = Y.one('#yukaltura_filetype').get('value');
+            var naturalWidth = Y.one('#yukaltura_naturalwidth').get('value');
+            var naturalHeight = Y.one('#yukaltura_naturalheight').get('value');
 
             var day = new Date();
             var timestamp = day.getTime();
 
+            var code = '';
+
             if (entryid !== null && entryid !== '' && kalturahost !== null && kalturahost !== '' &&
                 partnerid !== null && partnerid !== '' && uiconfid !== null && uiconfid !== '' &&
                 width !== null && width !== '' && height !== null && height !== '') {
-                var code = '<iframe src="' + kalturahost + '/p/' + partnerid + '/sp/' + partnerid + '00/';
-                code = code + 'embedIframeJs/uiconf_id/' + uiconfid + '/partner_id/' + partnerid + '?';
-                code = code + 'iframeembed=true&playerId=kaltura_player_' + timestamp + '&entry_id=' + entryid;
-                code = code + '" width="' + width + '" height="' + height + '" allowfullscreen webkitallowfullscreen ';
-                code = code + 'mozAllowFullScreen frameborder="0" allow="encrypted-media"></iframe>';
+                if (filetype == 'image' && naturalWidth > 0 && naturalHeight > 0) {
+                    var linkSource = kalturahost + '/p/' + partnerid + '/sp/' + partnerid + '00/thumbnail/entry_id/';
+                    linkSource += entryid + '/def_height/' + naturalHeight + '/def_width/' + naturalWidth + '/type/1';
+
+                    var modifiedWidth = 0;
+                    var modifiedHeight = 0;
+
+                    if (naturalWidth > 640 || naturalHeight > 480) {
+                        var ratioWidth = naturalWidth / 640;
+                        var ratioHeight = naturalHeight / 480;
+                        if (ratioWidth >= ratioHeight) {
+                            modifiedWidth = Math.floor(naturalWidth / ratioWidth);
+                            modifiedHeight = Math.floor(naturalHeight / ratioWidth);
+                        } else {
+                            modifiedWidth = Math.floor(naturalWidth / ratioHeight);
+                            modifiedHeight = Math.floor(naturalHeight / ratioHeight);
+                        }
+
+                        var thumbnailSource = kalturahost + '/p/' + partnerid + '/sp/' + partnerid;
+                        thumbnailSource += '00/thumbnail/entry_id/' + entryid + '/def_height/' + modifiedHeight;
+                        thumbnailSource += '/def_width/' + modifiedWidth + '/type/1';
+
+                        code += '<a href="' + linkSource + '" target="_new">';
+                        code += '<img src="' + thumbnailSource;
+                        code += '" width="' + modifiedWidth + '" height="' + modifiedHeight;
+                        code += '" alt="' + entryname + '" title="' + entryname + '" border="0" />';
+                        code += '</a>';
+                    } else {
+                        code += '<img src="' + linkSource;
+                        code += '" width="' + naturalWidth + '" height="' + naturalHeight;
+                        code += '" alt="' + entryname + '" title="' + entryname + '" border="0" />';
+                    }
+
+                } else {
+                    code += '<iframe src="' + kalturahost + '/p/' + partnerid + '/sp/' + partnerid + '00/';
+                    code += 'embedIframeJs/uiconf_id/' + uiconfid + '/partner_id/' + partnerid + '?';
+                    code += 'iframeembed=true&playerId=kaltura_player_' + timestamp + '&entry_id=' + entryid;
+                    code += '" width="' + width + '" height="' + height + '" allowfullscreen webkitallowfullscreen ';
+                    code += 'mozAllowFullScreen frameborder="0" allow="encrypted-media"></iframe>';
+                }
 
                 this.get('host').insertContentAtFocusPoint(code);
                 this.markUpdated();
@@ -323,11 +364,15 @@ Y.namespace('M.atto_yukaltura').Button = Y.Base.create('button', Y.M.editor_atto
      */
     _removeParameters : function() {
         Y.all('#yukaltura_select_id').remove();
+        Y.all('#yukaltura_select_name').remove();
         Y.all('#yukaltura_host').remove();
         Y.all('#yukaltura_partnerid').remove();
         Y.all('#yukaltura_uiconfid').remove();
         Y.all('#yukaltura_width').remove();
         Y.all('#yukaltura_height').remove();
+        Y.all('#yukaltura_filetype').remove();
+        Y.all('#yukaltura_naturalwidth').remove();
+        Y.all('#yukaltura_naturalheight').remove();
     }
 },
 {

@@ -37,6 +37,10 @@ define(['jquery'], function($) {
             var fileName = "";
             var fileSize = 0;
 
+            var uploadFileType = "";
+            var naturalWidth = 0;
+            var naturalHeight = 0;
+
             var MEDIA_TYPE = {
                 VIDEO: 1,
                 IMAGE: 2,
@@ -70,6 +74,26 @@ define(['jquery'], function($) {
                 TIMED_OUT: 4,
                 DELETED: 5
             };
+
+            var createObjectURL = window.URL && window.URL.createObjectURL
+                    ? function(file) {
+                        return window.URL.createObjectURL(file);
+                    }
+                    : window.webkitURL && window.webkitURL.createObjectURL
+                        ? function(file) {
+                            return window.webkitURL.createObjectURL(file);
+                        }
+                        : undefined;
+
+            var revokeObjectURL = window.URL && window.URL.revokeObjectURL
+                    ? function(file) {
+                        return window.URL.revokeObjectURL(file);
+                    }
+                    : window.webkitURL && window.webkitURL.revokeObjectURL
+                        ? function(file) {
+                            return window.webkitURL.revokeObjectURL(file);
+                        }
+                        : undefined;
 
             /**
              * This function checks metadata.
@@ -181,6 +205,9 @@ define(['jquery'], function($) {
                                 $("#description").val("");
                                 $("#type").val("");
                                 $("#fileData").val("");
+                                naturalWidth = 0;
+                                naturalHeight = 0;
+                                uploadFileType = "";
                             } else { // When any warning do not occures.
                                 var fileInfo = "";
                                 var sizeStr = "";
@@ -212,6 +239,23 @@ define(['jquery'], function($) {
                             }
                         });
                     });
+
+                    if (typeResult == 'image') {
+                        var image = new Image();
+                        image.onload = function() {
+                            naturalWidth = image.naturalWidth;
+                            naturalHeight = image.naturalHeight;
+                            revokeObjectURL(image.src);
+                            window.console.log(naturalWidth);
+                            window.console.log(naturalHeight);
+                        };
+                        image.src = createObjectURL(file);
+                    } else {
+                        naturalWidth = 0;
+                        naturalHeight = 0;
+                    }
+
+                    uploadFileType = typeResult;
                 }
 
                 checkForm();
@@ -224,6 +268,9 @@ define(['jquery'], function($) {
             function handleResetClick() {
                 $("#file_info").html("");
                 $("#type").val("");
+                uploadFileType = "";
+                naturalWidth = 0;
+                naturalHeight = 0;
             }
 
             /**
@@ -430,6 +477,9 @@ define(['jquery'], function($) {
                     var str = '<input type="hidden" name="yukaltura_select_id" id="yukaltura_select_id" value="">';
                     element.append(str);
 
+                    str = '<input type="hidden" name="yukaltura_select_name" id="yukaltura_select_name" value="">';
+                    element.append(str);
+
                     var kalturahost = $('#kalturahost').val();
                     str = '<input type="hidden" name="yukaltura_host" id="yukaltura_host" value="';
                     str = str + kalturahost + '">';
@@ -452,6 +502,19 @@ define(['jquery'], function($) {
                     var height = $('#player_height').val();
                     str = '<input type="hidden" name="yukaltura_height" id="yukaltura_height" value="' + height + '">';
                     element.append(str);
+
+                    str = '<input type="hidden" name="yukaltura_filetype" id="yukaltura_filetype" value="';
+                    str += uploadFileType + '">';
+                    element.append(str);
+
+                    str = '<input type="hidden" name="yukaltura_filetype" id="yukaltura_filetype" value="">';
+                    element.append(str);
+
+                    str = '<input type="hidden" name="yukaltura_naturalwidth" id="yukaltura_naturalwidth" value="">';
+                    element.append(str);
+
+                    str = '<input type="hidden" name="yukaltura_naturalheight" id="yukaltura_naturalheight" value="">';
+                    element.append(str);
                 }
             }
 
@@ -459,13 +522,20 @@ define(['jquery'], function($) {
              * This function update hidden parameters,
              * @access public
              * @param {string} id - id of media entry.
+             * @param {string} name - name of media entry.
              */
-            function updateHiddenParameters(id) {
+            function updateHiddenParameters(id, name) {
                 if (id !== null && id !== '' &&
                     parent.document.getElementById('yukaltura_select_id') !== null &&
                     parent.document.getElementById('yukaltura_select_id')[0] !== null) {
-                    // Set entry id of selectd media.
+                    // Set entry id of selected media.
                     $('#yukaltura_select_id', parent.document).val(id);
+                    // Set entry name of selected media.
+                    $('#yukaltura_select_name', parent.document).val(name);
+
+                    $('#yukaltura_filetype', parent.document).val(uploadFileType);
+                    $('#yukaltura_naturalwidth', parent.document).val(naturalWidth);
+                    $('#yukaltura_naturalheight', parent.document).val(naturalHeight);
                 }
             }
 
@@ -1061,7 +1131,7 @@ define(['jquery'], function($) {
                     // Prints success message.
                     printSuccessMessage(entryId, entryName, entryTags, entryDescription, entryCreatorId);
                     // Update hidden parameters on editors' page.
-                    updateHiddenParameters(entryId);
+                    updateHiddenParameters(entryId, entryName);
 
                 })
                 .fail(function(xmlData) {
@@ -1080,11 +1150,15 @@ define(['jquery'], function($) {
              */
             function removeParameters() {
                 $('#yukaltura_select_id', parent.document).remove();
+                $('#yukaltura_select_name', parent.document).remove();
                 $('#yukaltura_host', parent.document).remove();
                 $('#yukaltura_partnerid', parent.document).remove();
                 $('#yukaltura_uiconfid', parent.document).remove();
                 $('#yukaltura_width', parent.document).remove();
                 $('#yukaltura_height', parent.document).remove();
+                $('#yukaltura_filetype', parent.document).remove();
+                $('#yukaltura_naturalwidth', parent.document).remove();
+                $('#yukaltura_naturalheight', parent.document).remove();
             }
 
             // This function execute when window is chagned.
