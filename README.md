@@ -18,12 +18,12 @@ Also, this package is only available in English and Japanese. Stay tuned to futu
 
 Original plugin package ("Kaltura Video Package") has better functions than ours and is easy to use. So that, for customers of the "Kaltura SaaS Edition", use the original plugin package is the better.
 
-YU Kaltura Media for Atto.
+YU Kaltura Media for Atto
 ------
 
 This is a sub-plugin for the Atto HTML editor.
-By using this plugin, users can embed Kaltura media into moodle content.
-For example, introduction of resource content, page content, feedback comment, etc.
+By using this plugin, users can embed Kaltura media into text content.
+For example, introduction of resource/activity content, page content, label content, online text report, feedback comment, etc.
 Users can embed existing Kaltura media into text area of the Atto.
 And, they can upload new media and can embed it.
 Users can record new media by using a webcam, and can upload the media.
