@@ -59,6 +59,11 @@ define(['jquery'], function($) {
                 var selectId = e.target.id;
                 var selectName = e.target.alt;
 
+
+                var fileType = $('#' + selectId + '_filetype').val();
+                var naturalWidth = $('#' + selectId + '_width').val();
+                var naturalHeight = $('#' + selectId + '_height').val();
+
                 // Set name of selected media.
                 $("#select_name").html(selectName);
 
@@ -68,6 +73,9 @@ define(['jquery'], function($) {
                     var element = $('body', parent.document);
 
                     var str = '<input type="hidden" name="yukaltura_select_id" id="yukaltura_select_id" value="">';
+                    element.append(str);
+
+                    str = '<input type="hidden" name="yukaltura_select_name" id="yukaltura_select_name" value="">';
                     element.append(str);
 
                     var kalturahost = $('#kalturahost').val();
@@ -92,10 +100,27 @@ define(['jquery'], function($) {
                     var height = $('#player_height').val();
                     str = '<input type="hidden" name="yukaltura_height" id="yukaltura_height" value="' + height + '">';
                     element.append(str);
+
+                    str = '<input type="hidden" name="yukaltura_filetype" id="yukaltura_filetype" value="">';
+                    element.append(str);
+
+                    str = '<input type="hidden" name="yukaltura_naturalwidth" id="yukaltura_naturalwidth" value="">';
+                    element.append(str);
+
+                    str = '<input type="hidden" name="yukaltura_naturalheight" id="yukaltura_naturalheight" value="">';
+                    element.append(str);
                 }
 
-                // Set entry id of selectd media.
+                // Set entry id of selected media.
                 $('#yukaltura_select_id', parent.document).val(selectId);
+                // Set entry name of selected media.
+                $('#yukaltura_select_name', parent.document).val(selectName);
+                // Set natural width of selected media.
+                $('#yukaltura_filetype', parent.document).val(fileType);
+                // Set natural width of selected media.
+                $('#yukaltura_naturalwidth', parent.document).val(naturalWidth);
+                // Set natural height of selected media.
+                $('#yukaltura_naturalheight', parent.document).val(naturalHeight);
 
                 // Enable Insert button.
                 $("#yukaltura_insert_btn", parent.document).prop("disabled", false);
@@ -108,11 +133,15 @@ define(['jquery'], function($) {
              */
             function removeParameters() {
                 $('#yukaltura_select_id', parent.document).remove();
+                $('#yukaltura_select_name', parent.document).remove();
                 $('#yukaltura_host', parent.document).remove();
                 $('#yukaltura_partnerid', parent.document).remove();
                 $('#yukaltura_uiconfid', parent.document).remove();
                 $('#yukaltura_width', parent.document).remove();
                 $('#yukaltura_height', parent.document).remove();
+                $('#yukaltura_filetype', parent.document).remove();
+                $('#yukaltura_naturalwidth', parent.document).remove();
+                $('#yukaltura_naturalheight', parent.document).remove();
             }
 
             $("#selectorSort").on("change", function() {
