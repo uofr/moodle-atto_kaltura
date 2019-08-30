@@ -718,15 +718,15 @@ define(['jquery'], function($) {
                     ];
                     str.get_strings(strings).then(function (results) {
                         var output = '<h3>' + results[0] + '</h3>';
-                        output += "<table border=\"2\" cellpadding=\"5\">";
-                        output += "<tr><td>" + results[1] + "</td><td>" + id + "</td></tr>";
-                        output += "<tr><td>" + results[2] + "</td><td>" + name + "</td></tr>";
-                        output += "<tr><td>" + results[3] + "</td><td>" + tags + "</td></tr>";
-                        output += "<tr><td>" + results[4] + "</td><td>" + description + "</td></tr>";
-                        output += "<tr><td>" + results[5] + "</td><td>" + creatorId + "</td></tr>";
-                        output += "</table>";
-                        output += "<br>";
-                        output += "<p>" + results[6] + "</p>";
+                        output += '<table border="2" cellpadding="5">';
+                        output += '<tr><td>' + results[1] + '</td><td>' + id + '</td></tr>';
+                        output += '<tr><td>' + results[2] + '</td><td>' + name + '</td></tr>';
+                        output += '<tr><td>' + results[3] + '</td><td>' + tags + '</td></tr>';
+                        output += '<tr><td>' + results[4] + '</td><td>' + description + '</td></tr>';
+                        output += '<tr><td>' + results[5] + '</td><td>' + creatorId + '</td></tr>';
+                        output += '</table>';
+                        output += '<br>';
+                        output += '<p><font color="red">' + results[6] + '</font></p>';
                         $("#upload_info").html(output);
                     });
                 });
