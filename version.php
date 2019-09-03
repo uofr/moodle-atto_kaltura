@@ -17,16 +17,16 @@
 /**
  * YU Kaltura Media for Atto, version file.
  *
- * @package    atto_yukaltura
- * @copyright  (C) 2019 Yamaguchi University <gh-cc@mlex.cc.yamaguchi-u.ac.jp>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package   atto_yukaltura
+ * @copyright (C) 2019 Yamaguchi University <gh-cc@mlex.cc.yamaguchi-u.ac.jp>
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'atto_yukaltura';
-$plugin->version = 2019083000;
-$plugin->release = '1.0.0';
+$plugin->version = 2019090300;
+$plugin->release = '1.0.1';
 $plugin->maturity = MATURITY_STABLE;
 $plugin->requires = 2015051000;
 $plugin->dependencies = array(
