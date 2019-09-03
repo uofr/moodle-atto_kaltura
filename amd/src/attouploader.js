@@ -16,9 +16,9 @@
 /**
  * Uploader Script used in atto plugin.
  *
- * @package    atto_yukaltura
- * @copyright  (C) 2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package   atto_yukaltura
+ * @copyright (C) 2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 /**
@@ -602,7 +602,7 @@ define(['jquery'], function($) {
              * @param {string} serverHost - hostname of kaltura server.
              * @param {string} ks - session string of kaltura connection.
              * @param {string} uploadTokenId - token id for uploading.
-             * @return {bool} if upload token is deleted, return true.
+             * @return {bool} - if upload token is deleted, return true.
              */
             function deleteUploadToken(serverHost, ks, uploadTokenId) {
                 var fd = new FormData();
@@ -953,7 +953,9 @@ define(['jquery'], function($) {
                 require(['core/str'], function(str) {
                     var message = str.get_string('progress', 'local_yumymedia', null);
                     $.when(message).done(function(localizedString) {
-                        $("#upload_info").append("<p>" + localizedString + ": <span id=\"pvalue\" style=\"color:#00b200\">0.00</span> %</p>");
+                        var str = "<p>" + localizedString;
+                        str = str + ": <span id=\"pvalue\" style=\"color:#00b200\">0.00</span> %</p>";
+                        $("#upload_info").append(str);
                     });
                 });
 

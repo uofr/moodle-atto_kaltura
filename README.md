@@ -97,6 +97,10 @@ Warning
 Change log of YU Kaltura Media Resource
 ------
 
+Version 1.0.1
+
+* fixed comments in attorecorder.js, attouploader.js, atto_recorder.php, and atto_uploader.php
+
 Version 1.0.0
 
 * released first version.
