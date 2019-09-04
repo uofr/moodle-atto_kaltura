@@ -65,7 +65,7 @@ Y.namespace('M.atto_yukaltura').Button = Y.Base.create('button', Y.M.editor_atto
      */
     initializer: function() {
         // If we don't have the capability to view then give up.
-        if (this.get('disabled')){
+        if (this.get('disabled')) {
             return;
         }
 
@@ -111,7 +111,7 @@ Y.namespace('M.atto_yukaltura').Button = Y.Base.create('button', Y.M.editor_atto
      * @return {string} - the name/id of the media form field
      * @private
      */
-    _getMediaControlName: function(){
+    _getMediaControlName: function() {
         return(this.get('host').get('elementid') + '_' + MEDIACONTROL);
     },
 
@@ -135,12 +135,12 @@ Y.namespace('M.atto_yukaltura').Button = Y.Base.create('button', Y.M.editor_atto
         });
 
         // Dialog doesn't detect changes in width without this if you reuse the dialog, this seems necessary.
-        if (dialogue.width !== width + 'px'){
+        if (dialogue.width !== width + 'px') {
             dialogue.set('width', width + 'px');
         }
 
         // Dialog doesn't detect changes in height without this if you reuse the dialog, this seems necessary.
-        if (dialogue.height !== height + 'px'){
+        if (dialogue.height !== height + 'px') {
             dialogue.set('height', height + 'px');
         }
 
@@ -175,12 +175,12 @@ Y.namespace('M.atto_yukaltura').Button = Y.Base.create('button', Y.M.editor_atto
         });
 
         // Dialog doesn't detect changes in width without this if you reuse the dialog, this seems necessary.
-        if (dialogue.width !== width + 'px'){
+        if (dialogue.width !== width + 'px') {
             dialogue.set('width', width + 'px');
         }
 
         // Dialog doesn't detect changes in height without this if you reuse the dialog, this seems necessary.
-        if (dialogue.height !== height + 'px'){
+        if (dialogue.height !== height + 'px') {
             dialogue.set('height', height + 'px');
         }
 
@@ -215,12 +215,12 @@ Y.namespace('M.atto_yukaltura').Button = Y.Base.create('button', Y.M.editor_atto
         });
 
         // Dialog doesn't detect changes in width without this if you reuse the dialog, this seems necessary.
-        if (dialogue.width !== width + 'px'){
+        if (dialogue.width !== width + 'px') {
             dialogue.set('width', width + 'px');
         }
 
         // Dialog doesn't detect changes in height without this if you reuse the dialog, this seems necessary.
-        if (dialogue.height !== height + 'px'){
+        if (dialogue.height !== height + 'px') {
             dialogue.set('height', height + 'px');
         }
 
@@ -266,7 +266,7 @@ Y.namespace('M.atto_yukaltura').Button = Y.Base.create('button', Y.M.editor_atto
      * @method _doInsert
      * @private
      */
-    _doInsert : function(e) {
+    _doInsert: function(e) {
         e.preventDefault();
         this.getDialogue({
             focusAfterHide: null
@@ -349,7 +349,7 @@ Y.namespace('M.atto_yukaltura').Button = Y.Base.create('button', Y.M.editor_atto
      * @method _doCancel
      * @private
      */
-    _doCancel : function(e) {
+    _doCancel: function(e) {
         e.preventDefault();
         this.getDialogue({
             focusAfterHide: null
@@ -364,7 +364,7 @@ Y.namespace('M.atto_yukaltura').Button = Y.Base.create('button', Y.M.editor_atto
      * @method _removeParameters
      * @private
      */
-    _removeParameters : function() {
+    _removeParameters: function() {
         Y.all('#yukaltura_select_id').remove();
         Y.all('#yukaltura_select_name').remove();
         Y.all('#yukaltura_host').remove();
