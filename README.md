@@ -97,6 +97,10 @@ Warning
 Change log of YU Kaltura Media Resource
 ------
 
+Version 1.0.3
+
+* fixed some statements in attorecorder.js, and button.js, in order to according to the Moodle coding style.
+
 Version 1.0.2
 
 * fixed some statements in attorecorder.js, attouploader.js, and button.js, in order to according to the Moodle coding style.
