@@ -856,7 +856,7 @@ define(['jquery'], function($) {
                 return true;
             }
 
-            /*
+            /**
              * This function get hidden parameters.
              * @access public
              */
