@@ -186,7 +186,7 @@ define(['jquery'], function($) {
                             {key: 'filesize', component: 'local_yumymedia'},
                             {key: 'mimetype', component: 'local_yumymedia'}
                         ];
-                        str.get_strings(strings).then(function (results) {
+                        str.get_strings(strings).then(function(results) {
                             // When file size is wrong.
                             if (sizeResult === false) {
                                 alertInfo += results[0];
@@ -237,7 +237,9 @@ define(['jquery'], function($) {
                                 $("#name").val(fileName);
                                 $("#type").val(typeResult);
                             }
+                            return 0;
                         });
+                        return 0;
                     });
 
                     if (typeResult == 'image') {
@@ -438,13 +440,13 @@ define(['jquery'], function($) {
                     var strings = [
                         {key: 'upload_success', component: 'local_yumymedia'},
                         {key: 'entryid_header', component: 'local_yumymedia'},
-                        {key: 'name_header',component: 'local_yumymedia'},
+                        {key: 'name_header', component: 'local_yumymedia'},
                         {key: 'tags_header', component: 'local_yumymedia'},
                         {key: 'desc_header', component: 'local_yumymedia'},
                         {key: 'creatorid_header', component: 'local_yumymedia'},
                         {key: 'insert_media', component: 'atto_yukaltura'}
                     ];
-                    str.get_strings(strings).then(function (results) {
+                    str.get_strings(strings).then(function(results) {
                         var output = '<h3>' + results[0] + '</h3>';
                         output += '<table border="2" cellpadding="5">';
                         output += '<tr><td>' + results[1] + '</td><td>' + id + '</td></tr>';
@@ -456,6 +458,7 @@ define(['jquery'], function($) {
                         output += '<br>';
                         output += '<p><font color="red">' + results[6] + '</font></p>';
                         $("#upload_info").html(output);
+                        return 0;
                     });
                 });
 
@@ -464,7 +467,7 @@ define(['jquery'], function($) {
                 enableCancelButton();
             }
 
-            /*
+            /**
              * This function get hidden parameters.
              * @access public
              */
