@@ -529,6 +529,9 @@ define(['jquery'], function($) {
                             $("#status").html(localizedString);
                         });
                     });
+
+                    checkForm();
+                    return 0;
                 })
                 .catch(function(err) {
                     require(['core/str'], function(str) {
@@ -539,10 +542,8 @@ define(['jquery'], function($) {
                     });
 
                     window.console.log(err);
-                    return;
+                    return -1;
                 });
-
-                checkForm();
             }
 
             /**
@@ -716,7 +717,7 @@ define(['jquery'], function($) {
                         {key: 'creatorid_header', component: 'local_yumymedia'},
                         {key: 'insert_media', component: 'atto_yukaltura'}
                     ];
-                    str.get_strings(strings).then(function (results) {
+                    str.get_strings(strings).then(function(results) {
                         var output = '<h3>' + results[0] + '</h3>';
                         output += '<table border="2" cellpadding="5">';
                         output += '<tr><td>' + results[1] + '</td><td>' + id + '</td></tr>';
@@ -728,6 +729,7 @@ define(['jquery'], function($) {
                         output += '<br>';
                         output += '<p><font color="red">' + results[6] + '</font></p>';
                         $("#upload_info").html(output);
+                        return 0;
                     });
                 });
 

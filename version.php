@@ -25,8 +25,8 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'atto_yukaltura';
-$plugin->version = 2019090300;
-$plugin->release = '1.0.1';
+$plugin->version = 2019090400;
+$plugin->release = '1.0.2';
 $plugin->maturity = MATURITY_STABLE;
 $plugin->requires = 2015051000;
 $plugin->dependencies = array(
