@@ -110,13 +110,14 @@ Y.namespace('M.atto_yukaltura').Button = Y.Base.create('button', Y.M.editor_atto
      * @private
      */
     _getMediaControlName: function() {
-        return(this.get('host').get('elementid') + '_' + MEDIACONTROL);
+        return (this.get('host').get('elementid') + '_' + MEDIACONTROL);
     },
 
     /**
      * Display the atto selector.
      *
      * @method _displaySelector
+     * @param {object} e - object of event source.
      * @param {object} clickedicon - object of clicked button.
      * @private
      */
