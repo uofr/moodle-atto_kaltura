@@ -94,7 +94,7 @@ Warning
 * Web-camera recording function supports the Mozilla Firefox, Google Chrome, Opera and Safari. For smartphones and tablets, you can record movies through a normal media uploader.
 * Uploading and recording functions in resource and activity modules may not work well with smartphones. Because, low resolution screen cannot display these forms correctly.
 
-Change log of YU Kaltura Media Resource
+Change log of YU Kaltura Media for Atto
 ------
 
 Version 1.0.3
