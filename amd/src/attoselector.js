@@ -59,7 +59,6 @@ define(['jquery'], function($) {
                 var selectId = e.target.id;
                 var selectName = e.target.alt;
 
-
                 var fileType = $('#' + selectId + '_filetype').val();
                 var naturalWidth = $('#' + selectId + '_width').val();
                 var naturalHeight = $('#' + selectId + '_height').val();
