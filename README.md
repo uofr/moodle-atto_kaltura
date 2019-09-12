@@ -97,6 +97,10 @@ Warning
 Change log of YU Kaltura Media for Atto
 ------
 
+Version 1.0.4
+
+* fixed some statements in attoselector.js, in order to according to the Moodle coding style.
+
 Version 1.0.3
 
 * fixed some statements in attorecorder.js, and button.js, in order to according to the Moodle coding style.
