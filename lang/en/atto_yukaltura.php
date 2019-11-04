@@ -34,3 +34,6 @@ $string['insert_media'] = 'Please click Insert button below to embed this media.
 $string['selector_button_title'] = 'Embed existing media';
 $string['uploader_button_title'] = 'Uplaod and embed media';
 $string['recorder_button_title'] = 'Record and embed media (PC only)';
+
+// Privacy strings.
+$string['privacy:metadata'] = 'The YU Kaltura Media plugin does not store any personal data.';
