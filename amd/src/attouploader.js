@@ -436,7 +436,7 @@ define(['jquery'], function($) {
              */
             function printSuccessMessage(id, name, tags, description, creatorId) {
 
-                require(['core/str'], function(str) {
+                require(['core/str', 'core/notification'], function(str, notification) {
                     var strings = [
                         {key: 'upload_success', component: 'local_yumymedia'},
                         {key: 'entryid_header', component: 'local_yumymedia'},
@@ -459,7 +459,7 @@ define(['jquery'], function($) {
                         output += '<p><font color="red">' + results[6] + '</font></p>';
                         $("#upload_info").html(output);
                         return 0;
-                    });
+                    }).fail(notification.exception);
                 });
 
                 // Enable dialogue buttons.
@@ -968,7 +968,7 @@ define(['jquery'], function($) {
                 $.ajax(
                     serviceURL, postData
                 )
-                .done(function(xmlData, textStatus, xhr) {
+                .done(function(xmlData) {
                     // Response is not XML.
                     if (xmlData === null) {
                         deleteUploadToken(serverHost, ks, uploadTokenId);
