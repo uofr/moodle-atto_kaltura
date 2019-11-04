@@ -15,21 +15,36 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * YU Kaltura Media for Atto, version file.
+ * Privacy Subsystem implementation for atto_yukaltura.
  *
  * @package   atto_yukaltura
  * @copyright (C) 2019 Yamaguchi University <gh-cc@mlex.cc.yamaguchi-u.ac.jp>
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+namespace atto_yukaltura\privacy;
+
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->component = 'atto_yukaltura';
-$plugin->version = 2019110300;
-$plugin->release = '1.0.4';
-$plugin->maturity = MATURITY_STABLE;
-$plugin->requires = 2015051000;
-$plugin->dependencies = array(
-    'local_yukaltura' => 2019110300,
-    'local_yumymedia' => 2019110300
-);
+/**
+ * Privacy Subsystem for atto_yukaltura implementing null_provider.
+ *
+ * @package   atto_yukaltura
+ * @copyright (C) 2019 Yamaguchi University <gh-cc@mlex.cc.yamaguchi-u.ac.jp>
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+class provider implements \core_privacy\local\metadata\null_provider {
+
+    // To provide php 5.6 (33_STABLE) and up support.
+    use \core_privacy\local\legacy_polyfill;
+
+    /**
+     * Get the language string identifier with the component's language
+     * file to explain why this plugin stores no data.
+     *
+     * @return string - reason of why this plugin does not store users' data.
+     */
+    public static function _get_reason() {
+        return 'privacy:metadata';
+    }
+}
