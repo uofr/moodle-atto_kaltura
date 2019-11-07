@@ -56,19 +56,6 @@ $context = context_user::instance($USER->id);
 require_capability('local/yumymedia:view', $context, $USER);
 $renderer = $PAGE->get_renderer('local_yumymedia');
 
-// Connect to Kaltura server.
-$kaltura = new yukaltura_connection();
-$connection = $kaltura->get_connection(true, KALTURA_SESSION_LENGTH);
-
-if (!$connection) {  // When connection failed.
-    $url = new moodle_url('/admin/settings.php', array('section' => 'local_yukaltura'));
-    print_error('conn_failed', 'local_yukaltura', $baseurl);
-} else {  // When connection succeed.
-    $output = '';
-
-    $output .= $renderer->create_uploader_markup($connection, 'file', 'atto');
-
-    echo $output;
-}
+echo $renderer->create_uploader_markup('file', 'atto');
 
 echo $OUTPUT->footer();
