@@ -101,6 +101,7 @@ Change log of YU Kaltura Media for Atto
 Version 1.0.5
 
 * fixed javascript files based on JSDoc warnings.
+* fixed javascript files in order to support the Safari 12.x/13.x on macOS.
 * added privacy functions ans strings to comply with GDPR.
 
 Version 1.0.4
