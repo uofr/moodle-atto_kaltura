@@ -17,13 +17,13 @@
 /**
  * Embed media selector script
  *
- * @package   atto_yukaltura
+ * @package   atto_kaltura
  * @copyright (C) 2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 require_once(dirname(dirname(dirname(dirname(dirname(dirname(__FILE__)))))) . '/config.php');
-require_once($CFG->dirroot . '/local/yukaltura/locallib.php');
+require_once($CFG->dirroot . '/local/kaltura/locallib.php');
 
 defined('MOODLE_INTERNAL') || die();
 
@@ -40,7 +40,7 @@ $medias = 0;
 $PAGE->set_context(context_system::instance());
 $header = format_string($SITE->shortname).": atto_selector";
 
-$basedirectory = '/lib/editor/atto/plugins/yukaltura';
+$basedirectory = '/lib/editor/atto/plugins/kaltura';
 $baseurl = $basedirectory . '/atto_selector.php';
 
 $PAGE->set_pagetype('atto_selector');
@@ -53,25 +53,25 @@ $PAGE->add_body_class('mymedia-index');
 
 require_login();
 
-$PAGE->requires->css($basedirectory . '/css/atto_yukaltura.css', true);
-$PAGE->requires->js_call_amd('atto_yukaltura/attoselector', 'init', array());
+$PAGE->requires->css($basedirectory . '/css/atto_kaltura.css', true);
+$PAGE->requires->js_call_amd('atto_kaltura/attoselector', 'init', array());
 
 // Connect to Kaltura server.
-$kaltura = new yukaltura_connection();
+$kaltura = new kaltura_connection();
 $connection = $kaltura->get_connection(true, KALTURA_SESSION_LENGTH);
 
 if (!$connection) {
-    $url = new moodle_url('/admin/settings.php', array('section' => 'local_yukaltura'));
-    print_error('conn_failed', 'local_yukaltura', $baseurl);
+    $url = new moodle_url('/admin/settings.php', array('section' => 'local_kaltura'));
+    print_error('conn_failed', 'local_kaltura', $baseurl);
 }
 
-$partnerid = local_yukaltura_get_partner_id();
+$partnerid = local_kaltura_get_partner_id();
 $loginsession = '';
 
 if ($data = data_submitted() and confirm_sesskey()) {
 
     // Make sure the user has the capability to search, and if the required parameter is set.
-    if (has_capability('local/yukaltura:search_selector', $PAGE->context, $USER) && isset($data->simple_search_name)) {
+    if (has_capability('local/kaltura:search_selector', $PAGE->context, $USER) && isset($data->simple_search_name)) {
 
         $data->simple_search_name = clean_param($data->simple_search_name, PARAM_NOTAGS);
 
@@ -90,15 +90,15 @@ $context = context_user::instance($USER->id);
 
 echo $OUTPUT->header();
 
-require_capability('local/yukaltura:view_selector', $context, $USER);
+require_capability('local/kaltura:view_selector', $context, $USER);
 
-$renderer = $PAGE->get_renderer('local_yukaltura');
+$renderer = $PAGE->get_renderer('local_kaltura');
 
-if (local_yukaltura_get_mymedia_permission()) {
+if (local_kaltura_get_mymedia_permission()) {
     try {
 
         if (!$connection) {
-            throw new Exception(get_string('conn_failed', 'local_yukaltura'));
+            throw new Exception(get_string('conn_failed', 'local_kaltura'));
         }
 
         $perpage = 9;
@@ -111,9 +111,9 @@ if (local_yukaltura_get_mymedia_permission()) {
 
         // Check if the sesison data is set.
         if (isset($SESSION->selector) && !empty($SESSION->selector)) {
-            $medialist = local_yukaltura_search_mymedia_medias($connection, $SESSION->selector, $page + 1, $perpage, $sort);
+            $medialist = local_kaltura_search_mymedia_medias($connection, $SESSION->selector, $page + 1, $perpage, $sort);
         } else {
-                $medialist = local_yukaltura_search_mymedia_medias($connection, '', $page + 1, $perpage, $sort);
+                $medialist = local_kaltura_search_mymedia_medias($connection, '', $page + 1, $perpage, $sort);
         }
 
         $total = $medialist->totalCount;
@@ -146,7 +146,7 @@ if (local_yukaltura_get_mymedia_permission()) {
             echo $renderer->create_options_table_lower($page);
         } else {
             echo $renderer->create_options_table_upper($page, $baseurl);
-            echo '<center>'. get_string('no_media', 'local_yukaltura') . '</center>';
+            echo '<center>'. get_string('no_media', 'local_kaltura') . '</center>';
             echo $renderer->create_options_table_lower($page);
         }
 
@@ -156,8 +156,8 @@ if (local_yukaltura_get_mymedia_permission()) {
 
     } catch (Exception $ex) {
         $errormessage = 'View - error main page(' .  $ex->getMessage() . ')';
-        print_error($errormessage, 'local_yukaltura');
-        echo get_string('problem_viewing', 'local_yukaltura');
+        print_error($errormessage, 'local_kaltura');
+        echo get_string('problem_viewing', 'local_kaltura');
     }
 } else {
     echo $renderer->create_permission_message();

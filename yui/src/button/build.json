@@ -1,7 +1,7 @@
 {
-    "name": "moodle-atto_yukaltura-button",
+    "name": "moodle-atto_kaltura-button",
     "builds": {
-        "moodle-atto_yukaltura-button": {
+        "moodle-atto_kaltura-button": {
             "jsfiles": [
                 "button.js"
             ]

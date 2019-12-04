@@ -16,13 +16,13 @@
 /**
  * Uploader Script used in atto plugin.
  *
- * @package   atto_yukaltura
+ * @package   atto_kaltura
  * @copyright (C) 2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 /**
- * @module atto_yukaltura/attouploader
+ * @module atto_kaltura/attouploader
  */
 
 define(['jquery'], function($) {
@@ -181,10 +181,10 @@ define(['jquery'], function($) {
 
                     require(['core/str'], function(str) {
                         var strings = [
-                            {key: 'wrong_filesize', component: 'local_yumymedia'},
-                            {key: 'unsupported_filetype', component: 'local_yumymedia'},
-                            {key: 'filesize', component: 'local_yumymedia'},
-                            {key: 'mimetype', component: 'local_yumymedia'}
+                            {key: 'wrong_filesize', component: 'local_mymedia'},
+                            {key: 'unsupported_filetype', component: 'local_mymedia'},
+                            {key: 'filesize', component: 'local_mymedia'},
+                            {key: 'mimetype', component: 'local_mymedia'}
                         ];
                         str.get_strings(strings).then(function(results) {
                             // When file size is wrong.
@@ -319,7 +319,7 @@ define(['jquery'], function($) {
 
                 if (checkNameString(nameStr) === false) {
                     require(['core/str'], function(str) {
-                        var message = str.get_string('wrong_name', 'local_yumymedia', null);
+                        var message = str.get_string('wrong_name', 'local_mymedia', null);
                         $.when(message).done(function(localizedString) {
                             window.alert(localizedString);
                         });
@@ -329,7 +329,7 @@ define(['jquery'], function($) {
 
                 if (checkTagsString(tagsStr) === false) {
                     require(['core/str'], function(str) {
-                        var message = str.get_string('wrong_tags', 'local_yumymedia', null);
+                        var message = str.get_string('wrong_tags', 'local_mymedia', null);
                         $.when(message).done(function(localizedString) {
                             window.alert(localizedString);
                         });
@@ -339,7 +339,7 @@ define(['jquery'], function($) {
 
                 if (checkNameString(descStr) === false) {
                     require(['core/str'], function(str) {
-                        var message = str.get_string('wrong_desc', 'local_yumymedia', null);
+                        var message = str.get_string('wrong_desc', 'local_mymedia', null);
                         $.when(message).done(function(localizedString) {
                             window.alert(localizedString);
                         });
@@ -362,7 +362,7 @@ define(['jquery'], function($) {
                 }
                 if (checkFileSize() === false) {
                     require(['core/str'], function(str) {
-                        var message = str.get_string('wrong_filesize', 'local_yumymedia', null);
+                        var message = str.get_string('wrong_filesize', 'local_mymedia', null);
                         $.when(message).done(function(localizedString) {
                             window.alert(localizedString);
                         });
@@ -438,13 +438,13 @@ define(['jquery'], function($) {
 
                 require(['core/str', 'core/notification'], function(str, notification) {
                     var strings = [
-                        {key: 'upload_success', component: 'local_yumymedia'},
-                        {key: 'entryid_header', component: 'local_yumymedia'},
-                        {key: 'name_header', component: 'local_yumymedia'},
-                        {key: 'tags_header', component: 'local_yumymedia'},
-                        {key: 'desc_header', component: 'local_yumymedia'},
-                        {key: 'creatorid_header', component: 'local_yumymedia'},
-                        {key: 'insert_media', component: 'atto_yukaltura'}
+                        {key: 'upload_success', component: 'local_mymedia'},
+                        {key: 'entryid_header', component: 'local_mymedia'},
+                        {key: 'name_header', component: 'local_mymedia'},
+                        {key: 'tags_header', component: 'local_mymedia'},
+                        {key: 'desc_header', component: 'local_mymedia'},
+                        {key: 'creatorid_header', component: 'local_mymedia'},
+                        {key: 'insert_media', component: 'atto_kaltura'}
                     ];
                     str.get_strings(strings).then(function(results) {
                         var output = '<h3>' + results[0] + '</h3>';
@@ -473,50 +473,50 @@ define(['jquery'], function($) {
              */
             function getHiddenParameters() {
                 // Create new element if entry id element is null.
-                if (parent.document.getElementById('yukaltura_select_id') === null ||
-                    parent.document.getElementById('yukaltura_select_id')[0] === null) {
+                if (parent.document.getElementById('kaltura_select_id') === null ||
+                    parent.document.getElementById('kaltura_select_id')[0] === null) {
                     var element = $('body', parent.document);
 
-                    var str = '<input type="hidden" name="yukaltura_select_id" id="yukaltura_select_id" value="">';
+                    var str = '<input type="hidden" name="kaltura_select_id" id="kaltura_select_id" value="">';
                     element.append(str);
 
-                    str = '<input type="hidden" name="yukaltura_select_name" id="yukaltura_select_name" value="">';
+                    str = '<input type="hidden" name="kaltura_select_name" id="kaltura_select_name" value="">';
                     element.append(str);
 
                     var kalturahost = $('#kalturahost').val();
-                    str = '<input type="hidden" name="yukaltura_host" id="yukaltura_host" value="';
+                    str = '<input type="hidden" name="kaltura_host" id="kaltura_host" value="';
                     str = str + kalturahost + '">';
                     element.append(str);
 
                     var partnerid = $('#partnerid').val();
-                    str = '<input type="hidden" name="yukaltura_partnerid" id="yukaltura_partnerid" value="';
+                    str = '<input type="hidden" name="kaltura_partnerid" id="kaltura_partnerid" value="';
                     str = str + partnerid + '">';
                     element.append(str);
 
                     var uiconfid = $('#uiconfid').val();
-                    str = '<input type="hidden" name="yukaltura_uiconfid" id="yukaltura_uiconfid" value="';
+                    str = '<input type="hidden" name="kaltura_uiconfid" id="kaltura_uiconfid" value="';
                     str = str + uiconfid + '">';
                     element.append(str);
 
                     var width = $('#player_width').val();
-                    str = '<input type="hidden" name="yukaltura_width" id="yukaltura_width" value="' + width + '">';
+                    str = '<input type="hidden" name="kaltura_width" id="kaltura_width" value="' + width + '">';
                     element.append(str);
 
                     var height = $('#player_height').val();
-                    str = '<input type="hidden" name="yukaltura_height" id="yukaltura_height" value="' + height + '">';
+                    str = '<input type="hidden" name="kaltura_height" id="kaltura_height" value="' + height + '">';
                     element.append(str);
 
-                    str = '<input type="hidden" name="yukaltura_filetype" id="yukaltura_filetype" value="';
+                    str = '<input type="hidden" name="kaltura_filetype" id="kaltura_filetype" value="';
                     str += uploadFileType + '">';
                     element.append(str);
 
-                    str = '<input type="hidden" name="yukaltura_filetype" id="yukaltura_filetype" value="">';
+                    str = '<input type="hidden" name="kaltura_filetype" id="kaltura_filetype" value="">';
                     element.append(str);
 
-                    str = '<input type="hidden" name="yukaltura_naturalwidth" id="yukaltura_naturalwidth" value="">';
+                    str = '<input type="hidden" name="kaltura_naturalwidth" id="kaltura_naturalwidth" value="">';
                     element.append(str);
 
-                    str = '<input type="hidden" name="yukaltura_naturalheight" id="yukaltura_naturalheight" value="">';
+                    str = '<input type="hidden" name="kaltura_naturalheight" id="kaltura_naturalheight" value="">';
                     element.append(str);
                 }
             }
@@ -529,16 +529,16 @@ define(['jquery'], function($) {
              */
             function updateHiddenParameters(id, name) {
                 if (id !== null && id !== '' &&
-                    parent.document.getElementById('yukaltura_select_id') !== null &&
-                    parent.document.getElementById('yukaltura_select_id')[0] !== null) {
+                    parent.document.getElementById('kaltura_select_id') !== null &&
+                    parent.document.getElementById('kaltura_select_id')[0] !== null) {
                     // Set entry id of selected media.
-                    $('#yukaltura_select_id', parent.document).val(id);
+                    $('#kaltura_select_id', parent.document).val(id);
                     // Set entry name of selected media.
-                    $('#yukaltura_select_name', parent.document).val(name);
+                    $('#kaltura_select_name', parent.document).val(name);
 
-                    $('#yukaltura_filetype', parent.document).val(uploadFileType);
-                    $('#yukaltura_naturalwidth', parent.document).val(naturalWidth);
-                    $('#yukaltura_naturalheight', parent.document).val(naturalHeight);
+                    $('#kaltura_filetype', parent.document).val(uploadFileType);
+                    $('#kaltura_naturalwidth', parent.document).val(naturalWidth);
+                    $('#kaltura_naturalheight', parent.document).val(naturalHeight);
                 }
             }
 
@@ -548,8 +548,8 @@ define(['jquery'], function($) {
              */
             function enableInsertButton() {
                 // Eable insert button.
-                $('#yukaltura_insert_btn', parent.document).prop("disabled", false);
-                $('#yukaltura_insert_btn', parent.document).css({opacity: "1.0"});
+                $('#kaltura_insert_btn', parent.document).prop("disabled", false);
+                $('#kaltura_insert_btn', parent.document).css({opacity: "1.0"});
             }
 
             /**
@@ -558,8 +558,8 @@ define(['jquery'], function($) {
              */
             function disableInsertButton() {
                 // Disable insert button.
-                $('#yukaltura_insert_btn', parent.document).prop("disabled", true);
-                $('#yukaltura_insert_btn', parent.document).css({opacity: "0.5"});
+                $('#kaltura_insert_btn', parent.document).prop("disabled", true);
+                $('#kaltura_insert_btn', parent.document).css({opacity: "0.5"});
             }
 
             /**
@@ -568,8 +568,8 @@ define(['jquery'], function($) {
              */
             function enableCancelButton() {
                 // Eable cancel button.
-                $('#yukaltura_cancel_btn', parent.document).prop("disabled", false);
-                $('#yukaltura_cancel_btn', parent.document).css({opacity: "1.0"});
+                $('#kaltura_cancel_btn', parent.document).prop("disabled", false);
+                $('#kaltura_cancel_btn', parent.document).css({opacity: "1.0"});
             }
 
             /**
@@ -578,8 +578,8 @@ define(['jquery'], function($) {
              */
             function disableCancelButton() {
                 // Disable cancel button.
-                $('#yukaltura_cancel_btn', parent.document).prop("disabled", true);
-                $('#yukaltura_cancel_btn', parent.document).css({opacity: "0.5"});
+                $('#kaltura_cancel_btn', parent.document).prop("disabled", true);
+                $('#kaltura_cancel_btn', parent.document).css({opacity: "0.5"});
             }
 
             /**
@@ -947,14 +947,14 @@ define(['jquery'], function($) {
                 $("#upload_info").html("");
 
                 require(['core/str'], function(str) {
-                    var message = str.get_string('uploader_uploading', 'local_yumymedia', null);
+                    var message = str.get_string('uploader_uploading', 'local_mymedia', null);
                     $.when(message).done(function(localizedString) {
                         $("#upload_info").append(localizedString + "<br>");
                     });
                 });
 
                 require(['core/str'], function(str) {
-                    var message = str.get_string('progress', 'local_yumymedia', null);
+                    var message = str.get_string('progress', 'local_mymedia', null);
                     $.when(message).done(function(localizedString) {
                         var str = "<p>" + localizedString;
                         str = str + ": <span id=\"pvalue\" style=\"color:#00b200\">0.00</span> %</p>";
@@ -1005,7 +1005,7 @@ define(['jquery'], function($) {
                     }
 
                     require(['core/str'], function(str) {
-                        var message = str.get_string('attach_file', 'local_yumymedia', null);
+                        var message = str.get_string('attach_file', 'local_mymedia', null);
                         $.when(message).done(function(localizedString) {
                             $("#upload_info").append(localizedString + "<br>");
                         });
@@ -1154,16 +1154,16 @@ define(['jquery'], function($) {
              * @access public
              */
             function removeParameters() {
-                $('#yukaltura_select_id', parent.document).remove();
-                $('#yukaltura_select_name', parent.document).remove();
-                $('#yukaltura_host', parent.document).remove();
-                $('#yukaltura_partnerid', parent.document).remove();
-                $('#yukaltura_uiconfid', parent.document).remove();
-                $('#yukaltura_width', parent.document).remove();
-                $('#yukaltura_height', parent.document).remove();
-                $('#yukaltura_filetype', parent.document).remove();
-                $('#yukaltura_naturalwidth', parent.document).remove();
-                $('#yukaltura_naturalheight', parent.document).remove();
+                $('#kaltura_select_id', parent.document).remove();
+                $('#kaltura_select_name', parent.document).remove();
+                $('#kaltura_host', parent.document).remove();
+                $('#kaltura_partnerid', parent.document).remove();
+                $('#kaltura_uiconfid', parent.document).remove();
+                $('#kaltura_width', parent.document).remove();
+                $('#kaltura_height', parent.document).remove();
+                $('#kaltura_filetype', parent.document).remove();
+                $('#kaltura_naturalwidth', parent.document).remove();
+                $('#kaltura_naturalheight', parent.document).remove();
             }
 
             // This function execute when window is chagned.

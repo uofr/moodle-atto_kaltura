@@ -16,13 +16,13 @@
 /**
  * Media Secctor script for kaltura media embed.
  *
- * @package   atto_yukaltura
+ * @package   atto_kaltura
  * @copyright (C) 2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 /**
- * @module atto_yukaltura/attoselector
+ * @module atto_kaltura/attoselector
  */
 
 define(['jquery'], function($) {
@@ -46,8 +46,8 @@ define(['jquery'], function($) {
 
                 removeParameters();
                 // Dsiable Insert button.
-                $("#yukaltura_insert_btn", parent.document).prop("disabled", true);
-                $("#yukaltura_insert_btn", parent.document).css({opacity: "0.5"});
+                $("#kaltura_insert_btn", parent.document).prop("disabled", true);
+                $("#kaltura_insert_btn", parent.document).css({opacity: "0.5"});
             }
 
             /**
@@ -67,63 +67,63 @@ define(['jquery'], function($) {
                 $("#select_name").html(selectName);
 
                 // Create new element if entry id element is null.
-                if (parent.document.getElementById('yukaltura_select_id') === null ||
-                    parent.document.getElementById('yukaltura_select_id')[0] === null) {
+                if (parent.document.getElementById('kaltura_select_id') === null ||
+                    parent.document.getElementById('kaltura_select_id')[0] === null) {
                     var element = $('body', parent.document);
 
-                    var str = '<input type="hidden" name="yukaltura_select_id" id="yukaltura_select_id" value="">';
+                    var str = '<input type="hidden" name="kaltura_select_id" id="kaltura_select_id" value="">';
                     element.append(str);
 
-                    str = '<input type="hidden" name="yukaltura_select_name" id="yukaltura_select_name" value="">';
+                    str = '<input type="hidden" name="kaltura_select_name" id="kaltura_select_name" value="">';
                     element.append(str);
 
                     var kalturahost = $('#kalturahost').val();
-                    str = '<input type="hidden" name="yukaltura_host" id="yukaltura_host" value="';
+                    str = '<input type="hidden" name="kaltura_host" id="kaltura_host" value="';
                     str = str + kalturahost + '">';
                     element.append(str);
 
                     var partnerid = $('#partnerid').val();
-                    str = '<input type="hidden" name="yukaltura_partnerid" id="yukaltura_partnerid" value="';
+                    str = '<input type="hidden" name="kaltura_partnerid" id="kaltura_partnerid" value="';
                     str = str + partnerid + '">';
                     element.append(str);
 
                     var uiconfid = $('#uiconfid').val();
-                    str = '<input type="hidden" name="yukaltura_uiconfid" id="yukaltura_uiconfid" value="';
+                    str = '<input type="hidden" name="kaltura_uiconfid" id="kaltura_uiconfid" value="';
                     str = str + uiconfid + '">';
                     element.append(str);
 
                     var width = $('#player_width').val();
-                    str = '<input type="hidden" name="yukaltura_width" id="yukaltura_width" value="' + width + '">';
+                    str = '<input type="hidden" name="kaltura_width" id="kaltura_width" value="' + width + '">';
                     element.append(str);
 
                     var height = $('#player_height').val();
-                    str = '<input type="hidden" name="yukaltura_height" id="yukaltura_height" value="' + height + '">';
+                    str = '<input type="hidden" name="kaltura_height" id="kaltura_height" value="' + height + '">';
                     element.append(str);
 
-                    str = '<input type="hidden" name="yukaltura_filetype" id="yukaltura_filetype" value="">';
+                    str = '<input type="hidden" name="kaltura_filetype" id="kaltura_filetype" value="">';
                     element.append(str);
 
-                    str = '<input type="hidden" name="yukaltura_naturalwidth" id="yukaltura_naturalwidth" value="">';
+                    str = '<input type="hidden" name="kaltura_naturalwidth" id="kaltura_naturalwidth" value="">';
                     element.append(str);
 
-                    str = '<input type="hidden" name="yukaltura_naturalheight" id="yukaltura_naturalheight" value="">';
+                    str = '<input type="hidden" name="kaltura_naturalheight" id="kaltura_naturalheight" value="">';
                     element.append(str);
                 }
 
                 // Set entry id of selected media.
-                $('#yukaltura_select_id', parent.document).val(selectId);
+                $('#kaltura_select_id', parent.document).val(selectId);
                 // Set entry name of selected media.
-                $('#yukaltura_select_name', parent.document).val(selectName);
+                $('#kaltura_select_name', parent.document).val(selectName);
                 // Set natural width of selected media.
-                $('#yukaltura_filetype', parent.document).val(fileType);
+                $('#kaltura_filetype', parent.document).val(fileType);
                 // Set natural width of selected media.
-                $('#yukaltura_naturalwidth', parent.document).val(naturalWidth);
+                $('#kaltura_naturalwidth', parent.document).val(naturalWidth);
                 // Set natural height of selected media.
-                $('#yukaltura_naturalheight', parent.document).val(naturalHeight);
+                $('#kaltura_naturalheight', parent.document).val(naturalHeight);
 
                 // Enable Insert button.
-                $("#yukaltura_insert_btn", parent.document).prop("disabled", false);
-                $("#yukaltura_insert_btn", parent.document).css({opacity: "1.0"});
+                $("#kaltura_insert_btn", parent.document).prop("disabled", false);
+                $("#kaltura_insert_btn", parent.document).css({opacity: "1.0"});
             }
 
             /**
@@ -131,16 +131,16 @@ define(['jquery'], function($) {
              * @access public
              */
             function removeParameters() {
-                $('#yukaltura_select_id', parent.document).remove();
-                $('#yukaltura_select_name', parent.document).remove();
-                $('#yukaltura_host', parent.document).remove();
-                $('#yukaltura_partnerid', parent.document).remove();
-                $('#yukaltura_uiconfid', parent.document).remove();
-                $('#yukaltura_width', parent.document).remove();
-                $('#yukaltura_height', parent.document).remove();
-                $('#yukaltura_filetype', parent.document).remove();
-                $('#yukaltura_naturalwidth', parent.document).remove();
-                $('#yukaltura_naturalheight', parent.document).remove();
+                $('#kaltura_select_id', parent.document).remove();
+                $('#kaltura_select_name', parent.document).remove();
+                $('#kaltura_host', parent.document).remove();
+                $('#kaltura_partnerid', parent.document).remove();
+                $('#kaltura_uiconfid', parent.document).remove();
+                $('#kaltura_width', parent.document).remove();
+                $('#kaltura_height', parent.document).remove();
+                $('#kaltura_filetype', parent.document).remove();
+                $('#kaltura_naturalwidth', parent.document).remove();
+                $('#kaltura_naturalheight', parent.document).remove();
             }
 
             $("#selectorSort").on("change", function() {
@@ -153,8 +153,8 @@ define(['jquery'], function($) {
 
             removeParameters();
             // Dsiable Insert button.
-            $('#yukaltura_insert_btn', parent.document).prop("disabled", true);
-            $('#yukaltura_insert_btn', parent.document).css({opacity: "0.5"});
+            $('#kaltura_insert_btn', parent.document).prop("disabled", true);
+            $('#kaltura_insert_btn', parent.document).css({opacity: "0.5"});
         }
     };
 });

@@ -17,7 +17,7 @@
 /**
  * Plugin capabilities.
  *
- * @package   atto_yukaltura
+ * @package   atto_kaltura
  * @copyright (C) 2019 Yamaguchi University <gh-cc@mlex.cc.yamaguchi-u.ac.jp>
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -26,7 +26,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $capabilities = array(
 
-    'atto/yukaltura:view' => array(
+    'atto/kaltura:view' => array(
         'captype' => 'write',
         'contextlevel' => CONTEXT_COURSE,
         'archetypes' => array(

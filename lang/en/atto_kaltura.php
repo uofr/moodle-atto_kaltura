@@ -15,19 +15,19 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'atto_yukaltura', language 'en'.
+ * Strings for component 'atto_kaltura', language 'en'.
  *
- * @package   atto_yukaltura
- * @copyright (C) 2019 Yamaguchi University <gh-cc@mlex.cc.yamaguchi-u.ac.jp>
+ * @package   atto_kaltura
+ * @copyright (C) 2019 Yamaguchi University <gh-cc@mlex.cc.yamaguchi-u.ac.jp> 
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$string['pluginname'] = 'YU Kaltura Media';
+$string['pluginname'] = 'Kaltura CE Media';
 
 // Capability strings.
-$string['yukaltura:view'] = 'View YU Kaltura tool buttons.';
+$string['kaltura:view'] = 'View Kaltura CE tool buttons.';
 
-$string['form_title'] = 'YU Kaltura Media';
+$string['form_title'] = 'Kaltura CE Media';
 $string['insert'] = 'Insert';
 $string['cancel'] = 'Cancel';
 $string['insert_media'] = 'Please click Insert button below to embed this media.';
@@ -36,4 +36,4 @@ $string['uploader_button_title'] = 'Uplaod and embed media';
 $string['recorder_button_title'] = 'Record and embed media (PC only)';
 
 // Privacy strings.
-$string['privacy:metadata'] = 'The YU Kaltura Media plugin does not store any personal data.';
+$string['privacy:metadata'] = 'The Kaltura CE Media plugin does not store any personal data.';

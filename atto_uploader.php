@@ -17,13 +17,13 @@
 /**
  * Simple media uploader script for Atto sub-plugin.
  *
- * @package   atto_yukaltura
+ * @package   atto_kaltura
  * @copyright (C) 2019 Yamaguchi University <gh-cc@mlex.cc.yamaguchi-u.ac.jp>
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 require_once(dirname(dirname(dirname(dirname(dirname(dirname(__FILE__)))))) . '/config.php');
-require_once($CFG->dirroot . '/local/yukaltura/locallib.php');
+require_once($CFG->dirroot . '/local/kaltura/locallib.php');
 
 defined('MOODLE_INTERNAL') || die();
 
@@ -33,9 +33,9 @@ header('Cache-Control: no-cache');
 global $USER, $SESSION, $COURSE;
 
 $PAGE->set_context(context_system::instance());
-$header = format_string($SITE->shortname). ": " . get_string('uploader_hdr', 'local_yumymedia');
+$header = format_string($SITE->shortname). ": " . get_string('uploader_hdr', 'local_mymedia');
 
-$basedirectory = '/lib/editor/atto/plugins/yukaltura';
+$basedirectory = '/lib/editor/atto/plugins/kaltura';
 $baseurl = $basedirectory . '/atto_selector.php';
 
 $PAGE->set_pagetype('atto_uploader');
@@ -45,16 +45,16 @@ $PAGE->set_pagelayout('embedded');
 $PAGE->set_title($header);
 $PAGE->set_heading($header);
 $PAGE->add_body_class('mymedia-index');
-$PAGE->requires->css($basedirectory . '/css/atto_yukaltura.css');
-$PAGE->requires->js_call_amd('atto_yukaltura/attouploader', 'init', null);
+$PAGE->requires->css($basedirectory . '/css/atto_kaltura.css');
+$PAGE->requires->js_call_amd('atto_kaltura/attouploader', 'init', null);
 
 require_login();
 
 echo $OUTPUT->header();
 
 $context = context_user::instance($USER->id);
-require_capability('local/yumymedia:view', $context, $USER);
-$renderer = $PAGE->get_renderer('local_yumymedia');
+require_capability('local/mymedia:view', $context, $USER);
+$renderer = $PAGE->get_renderer('local_mymedia');
 
 echo $renderer->create_uploader_markup('file', 'atto');
 

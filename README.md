@@ -6,10 +6,10 @@ By using this package, users can upload media to the Kaltura server, and easily 
 Moreover, this package provides some useful functions.
 Since this package does not require Kaltura Application Framework (KAF), can work with Kaltura Community Edition (CE) and other editions.
 
-In order to use this package, administrators must install "[YU Kaltura Media Local Libraries](https://moodle.org/plugins/local_yukaltura)" and "[YU Kaltura Media Gallery](https://moodle.org/plugins/local_yumymedia)".
+In order to use this package, administrators must install "[YU Kaltura Media Local Libraries](https://moodle.org/plugins/local_kaltura)" and "[YU Kaltura Media Gallery](https://moodle.org/plugins/local_mymedia)".
 These plugins provide functions such as uploading, playing back and deleting media files to users.
 
-In addition, the administrators can install "[YU Kaltura Media Assignment](https://moodle.org/plugins/mod_kalmediaassign)", "[YU Kaltura Media Resource](https://moodle.org/plugins/mod_kalmediares)", and "[YU Kaltura Media for Atto](https://moodle.org/plugins/atto_yukaltura)".
+In addition, the administrators can install "[YU Kaltura Media Assignment](https://moodle.org/plugins/mod_kalmediaassign)", "[YU Kaltura Media Resource](https://moodle.org/plugins/mod_kalmediares)", and "[YU Kaltura Media for Atto](https://moodle.org/plugins/atto_kaltura)".
 These plugins provide teachers ability of creating resource and activity modules which use kaltura media in their Moodle courses.
 And, user can embed his/her media into text area (introduction or page content) through the Atto HTML editor.
 
@@ -29,7 +29,7 @@ In addition, they can upload new media and can embed it.
 For PCs, users can record new media by using a webcam, and can upload the media.
 Then, they can embed the media into text area of the Atto.
 
-This plugin is updated with stable releases. To follow active development on GitHub, click [here](https://github.com/YU-MITC/moodle-atto_yukaltura/).
+This plugin is updated with stable releases. To follow active development on GitHub, click [here](https://github.com/YU-MITC/moodle-atto_kaltura/).
 
 Requirements
 ------
@@ -39,7 +39,7 @@ Requirements
 * System administrators must use the HTTPS protocol for their Moodle site and Kaltura server.
 * Administrators must not delete "Default" access control profile from their Kaltura server. If they delete the "Default" profile, they must create new profile named "Default" before install our plugins.
 * These plugins do not support Flash players. Therefore, please use HTML5 players.
-* "local_yukaltura" and "local_yumymedia" plugins.
+* "local_kaltura" and "local_mymedia" plugins.
 
 Supported themes
 -----
@@ -53,11 +53,11 @@ This plugin package might be able to work with other themes.
 Installation
 ------
 
-Unzip this plugin, and copy the directory (lib/editor/atto/plugins/yukaltura) under moodle root directory (ex. /moodle).
+Unzip this plugin, and copy the directory (lib/editor/atto/plugins/kaltura) under moodle root directory (ex. /moodle).
 Installation will be completed after you log in as an administrator and access the notification menu.
 
-After installation, the administrator must access setting page of local_yukaltura, and must set some items for this plugin.
-Next, the administrator must access setting page of the Atto HTML editor, and must add "yukaltura" keyword to toolbar's setting.
+After installation, the administrator must access setting page of local_kaltura, and must set some items for this plugin.
+Next, the administrator must access setting page of the Atto HTML editor, and must add "kaltura" keyword to toolbar's setting.
 
 How to use
 ------

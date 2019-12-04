@@ -14,35 +14,35 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /*
- * @package   atto_yukaltura
+ * @package   atto_kaltura
  * @copyright (C) 2019 Yamaguchi University <gh-cc@mlex.cc.yamaguchi-u.ac.jp>
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 /**
- * @module moodle-atto_yukaltura-button
+ * @module moodle-atto_kaltura-button
  */
 
 /**
- * Atto text editor yukaltura plugin.
+ * Atto text editor kaltura plugin.
  *
- * @namespace M.atto_yukaltura
+ * @namespace M.atto_kaltura
  * @class button
  * @extends M.editor_atto.EditorPlugin
  */
 
-var COMPONENTNAME = 'atto_yukaltura';
-var MEDIACONTROL = 'yukaltura_media';
+var COMPONENTNAME = 'atto_kaltura';
+var MEDIACONTROL = 'kaltura_media';
 
 var CSS = {
-    INPUTSUBMIT: 'yukaltura_insert_btn',
-    INPUTCANCEL: 'yukaltura_cancel_btn'
+    INPUTSUBMIT: 'kaltura_insert_btn',
+    INPUTCANCEL: 'kaltura_cancel_btn'
 };
 
 var TEMPLATE = '';
 
-TEMPLATE = "<iframe src=\"" + "{{url}}" + "\" width=\"680px\" height=\"580px\" name=\"yukaltura_frame\" "
-         + "id=\"yukaltura_frame_{{elementid}}\"></iframe>"
+TEMPLATE = "<iframe src=\"" + "{{url}}" + "\" width=\"680px\" height=\"580px\" name=\"kaltura_frame\" "
+         + "id=\"kaltura_frame_{{elementid}}\"></iframe>"
          + '<div align="right">'
          + '<input type="button" class="{{CSS.INPUTSUBMIT}}" id="{{CSS.INPUTSUBMIT}}" name="{{CSS.INPUTSUBMIT}}" '
          + 'value={{get_string "insert" component}}>'
@@ -54,7 +54,7 @@ TEMPLATE = "<iframe src=\"" + "{{url}}" + "\" width=\"680px\" height=\"580px\" n
 
 var editorid = '';
 
-Y.namespace('M.atto_yukaltura').Button = Y.Base.create('button', Y.M.editor_atto.EditorPlugin, [], {
+Y.namespace('M.atto_kaltura').Button = Y.Base.create('button', Y.M.editor_atto.EditorPlugin, [], {
 
     /**
      * Initialize the button.
@@ -70,7 +70,7 @@ Y.namespace('M.atto_yukaltura').Button = Y.Base.create('button', Y.M.editor_atto
         if (this.get('enablemymedia') == 1) {
             this.addButton({
                 icon: 'ed/selector',
-                iconComponent: 'atto_yukaltura',
+                iconComponent: 'atto_kaltura',
                 buttonName: 'selector',
                 title: 'selector_button_title',
                 callback: this._displaySelector,
@@ -80,7 +80,7 @@ Y.namespace('M.atto_yukaltura').Button = Y.Base.create('button', Y.M.editor_atto
             if (this.get('enableuploading') == 1) {
                 this.addButton({
                     icon: 'ed/uploader',
-                    iconComponent: 'atto_yukaltura',
+                    iconComponent: 'atto_kaltura',
                     buttonName: 'uploader',
                     title: 'uploader_button_title',
                     callback: this._displayUploader,
@@ -90,7 +90,7 @@ Y.namespace('M.atto_yukaltura').Button = Y.Base.create('button', Y.M.editor_atto
                 if (this.get('enablerecording') == 1) {
                     this.addButton({
                         icon: 'ed/recorder',
-                        iconComponent: 'atto_yukaltura',
+                        iconComponent: 'atto_kaltura',
                         buttonName: 'recorder',
                         title: 'recorder_button_title',
                         callback: this._displayRecorder,
@@ -273,17 +273,17 @@ Y.namespace('M.atto_yukaltura').Button = Y.Base.create('button', Y.M.editor_atto
 
         this.editor.focus();
 
-        if (Y.one('#yukaltura_select_id') !== null) {
-            var entryid = Y.one('#yukaltura_select_id').get('value');
-            var entryname = Y.one('#yukaltura_select_name').get('value');
-            var kalturahost = Y.one('#yukaltura_host').get('value');
-            var partnerid = Y.one('#yukaltura_partnerid').get('value');
-            var uiconfid = Y.one('#yukaltura_uiconfid').get('value');
-            var width = Y.one('#yukaltura_width').get('value');
-            var height = Y.one('#yukaltura_height').get('value');
-            var filetype = Y.one('#yukaltura_filetype').get('value');
-            var naturalWidth = Y.one('#yukaltura_naturalwidth').get('value');
-            var naturalHeight = Y.one('#yukaltura_naturalheight').get('value');
+        if (Y.one('#kaltura_select_id') !== null) {
+            var entryid = Y.one('#kaltura_select_id').get('value');
+            var entryname = Y.one('#kaltura_select_name').get('value');
+            var kalturahost = Y.one('#kaltura_host').get('value');
+            var partnerid = Y.one('#kaltura_partnerid').get('value');
+            var uiconfid = Y.one('#kaltura_uiconfid').get('value');
+            var width = Y.one('#kaltura_width').get('value');
+            var height = Y.one('#kaltura_height').get('value');
+            var filetype = Y.one('#kaltura_filetype').get('value');
+            var naturalWidth = Y.one('#kaltura_naturalwidth').get('value');
+            var naturalHeight = Y.one('#kaltura_naturalheight').get('value');
 
             var day = new Date();
             var timestamp = day.getTime();
@@ -364,16 +364,16 @@ Y.namespace('M.atto_yukaltura').Button = Y.Base.create('button', Y.M.editor_atto
      * @private
      */
     _removeParameters: function() {
-        Y.all('#yukaltura_select_id').remove();
-        Y.all('#yukaltura_select_name').remove();
-        Y.all('#yukaltura_host').remove();
-        Y.all('#yukaltura_partnerid').remove();
-        Y.all('#yukaltura_uiconfid').remove();
-        Y.all('#yukaltura_width').remove();
-        Y.all('#yukaltura_height').remove();
-        Y.all('#yukaltura_filetype').remove();
-        Y.all('#yukaltura_naturalwidth').remove();
-        Y.all('#yukaltura_naturalheight').remove();
+        Y.all('#kaltura_select_id').remove();
+        Y.all('#kaltura_select_name').remove();
+        Y.all('#kaltura_host').remove();
+        Y.all('#kaltura_partnerid').remove();
+        Y.all('#kaltura_uiconfid').remove();
+        Y.all('#kaltura_width').remove();
+        Y.all('#kaltura_height').remove();
+        Y.all('#kaltura_filetype').remove();
+        Y.all('#kaltura_naturalwidth').remove();
+        Y.all('#kaltura_naturalheight').remove();
     }
 },
 {

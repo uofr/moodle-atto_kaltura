@@ -17,7 +17,7 @@
 /**
  * Atto text editor integration library file.
  *
- * @package   atto_yukaltura
+ * @package   atto_kaltura
  * @copyright (C) 2019 Yamaguchi University <gh-cc@mlex.cc.yamaguchi-u.ac.jp>
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -27,7 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 /**
  * Initialise this plugin.
  */
-function atto_yukaltura_strings_for_js() {
+function atto_kaltura_strings_for_js() {
     global $PAGE;
 
     $PAGE->requires->strings_for_js(array(
@@ -37,7 +37,7 @@ function atto_yukaltura_strings_for_js() {
                                           'uploader_button_title',
                                           'recorder_button_title',
                                           'form_title'),
-                                    'atto_yukaltura');
+                                    'atto_kaltura');
 }
 
 /**
@@ -47,15 +47,15 @@ function atto_yukaltura_strings_for_js() {
  * @param stdClass $fpoptions - unused.
  * @return array of additional params to pass to javascript init function for this module.
  */
-function atto_yukaltura_params_for_js($elementid, $options, $fpoptions) {
+function atto_kaltura_params_for_js($elementid, $options, $fpoptions) {
     global $USER, $COURSE, $CFG;
 
     require_once($CFG->dirroot . '/config.php');
-    require_once($CFG->dirroot . '/local/yukaltura/locallib.php');
+    require_once($CFG->dirroot . '/local/kaltura/locallib.php');
 
     require_login();
 
-    $basedirectory = '/lib/editor/atto/plugins/yukaltura';
+    $basedirectory = '/lib/editor/atto/plugins/kaltura';
 
     // Get course context.
     $coursecontext = context_course::instance($COURSE->id);
@@ -65,21 +65,21 @@ function atto_yukaltura_params_for_js($elementid, $options, $fpoptions) {
     $disabled = false;
 
     // Get configuration parameters for Kaltura.
-    $enablemymedia = local_yukaltura_get_mymedia_permission();
-    $enableuploading = get_config('local_yukaltura', 'atto_upload');
-    $enablerecording = get_config('local_yukaltura', 'enable_webcam');
+    $enablemymedia = local_kaltura_get_mymedia_permission();
+    $enableuploading = get_config('local_kaltura', 'atto_upload');
+    $enablerecording = get_config('local_kaltura', 'enable_webcam');
 
     // Config our array of data.
     $params = array();
     $params['usercontextid'] = $usercontextid;
 
     // If they don't have permission don't show it.
-    if (!has_capability('atto/yukaltura:view', $coursecontext) ||
-        !has_capability('local/yumymedia:view', $coursecontext) ||
-        !has_capability('local/yumymedia:search', $coursecontext) ||
-        !has_capability('local/yumymedia:editmetadata', $coursecontext) ||
-        !has_capability('local/yumymedia:upload', $coursecontext) ||
-        !has_capability('local/yumymedia:delete', $coursecontext)) {
+    if (!has_capability('atto/kaltura:view', $coursecontext) ||
+        !has_capability('local/mymedia:view', $coursecontext) ||
+        !has_capability('local/mymedia:search', $coursecontext) ||
+        !has_capability('local/mymedia:editmetadata', $coursecontext) ||
+        !has_capability('local/mymedia:upload', $coursecontext) ||
+        !has_capability('local/mymedia:delete', $coursecontext)) {
         $disabled = true;
     }
 

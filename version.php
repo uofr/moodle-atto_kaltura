@@ -17,19 +17,19 @@
 /**
  * YU Kaltura Media for Atto, version file.
  *
- * @package   atto_yukaltura
+ * @package   atto_kaltura
  * @copyright (C) 2019 Yamaguchi University <gh-cc@mlex.cc.yamaguchi-u.ac.jp>
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->component = 'atto_yukaltura';
+$plugin->component = 'atto_kaltura';
 $plugin->version = 2019111400;
 $plugin->release = '1.4.0';
 $plugin->maturity = MATURITY_STABLE;
 $plugin->requires = 2015051100;
 $plugin->dependencies = array(
-    'local_yukaltura' => 2019111400,
-    'local_yumymedia' => 2019111400
+    'local_kaltura' => 2019051400,
+    'local_mymedia' => 2018010200
 );

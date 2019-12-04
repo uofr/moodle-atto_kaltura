@@ -1,5 +1,5 @@
 {
-    "moodle-atto_yukaltura-button": {
+    "moodle-atto_kaltura-button": {
         "requires": [
             "moodle-editor_atto-plugin"
         ]
